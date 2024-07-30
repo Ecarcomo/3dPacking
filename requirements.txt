@@ -1,0 +1,10 @@
+# Dependencias básicas de Express.js
+express
+flask
+
+# Librería Python específica
+py3dbp
+
+# Dependencias adicionales
+requests
+pandas
