@@ -117,7 +117,8 @@ if __name__ == "__main__":
           "depth": data_item.split("|")[3],
           "weight": data_item.split("|")[4]
           }
-    json_data_string["items"].append(aux)
+    for x in range(int(data_item.split("|")[5])):
+      json_data_string["items"].append(aux)
   data = json.dumps(json_data_string)
   result = parse_and_pack_json(data)
   print(result)

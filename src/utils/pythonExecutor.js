@@ -26,10 +26,11 @@ function executePythonScript(scriptPath, data) {
                 item.width +"|"+
                 item.height +"|"+
                 item.depth +"|"+
-                item.weight +"\" ";
+                item.weight +"|"+
+                item.quantity +"\" ";
     });
 
-    command = "py "+scriptPath+" "+params;
+    command = "python3 "+scriptPath+" "+params;
     return new Promise((resolve,reject) => {
       exec(command , (err, stdout, stderr) => {
           if (err) {

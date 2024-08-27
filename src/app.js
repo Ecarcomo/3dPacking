@@ -1,5 +1,6 @@
 //Dependences imports
 const express = require('express');
+const cors = require('cors');
 //Local imports
 const apiRouter = require('./routes/router');
 
@@ -7,9 +8,13 @@ const apiRouter = require('./routes/router');
  * @description Configure Express middleware and settings
  */
 const app = express();
-const port = process.env.PORT || 3000;
+app.use(cors({
+  origin: 'http://127.0.0.1:4173', // Your frontend's origin
+}));
+const port = process.env.PORT || 5500;
 app.use(express.json());      // Parse JSON body content
 app.use('/api',apiRouter);    // Mount the API routes with express-validator
+
 
 
 

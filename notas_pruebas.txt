@@ -40,3 +40,7 @@ como el Python va a recibir los parametros-
 py ./src/backend/ejecutable.py "baulera::baulera simple|3|3|3|10000" "item::sillon 2 cuerpos|3|0.8|0.8|40" "item::mesa de luz|0.4|0.5|0.4|5"
 
 jsdoc src/ -c conf.json -R README.md
+
+ docker build -t ecarcomo/api3dpacking .
+ docker run -d -p 3000:3000 --name container_3d_packing_api <id_image>
+ docker stop <id_container>

@@ -1,11 +1,17 @@
-FROM python:3.12-alpine3.17
-
+FROM nikolaik/python-nodejs
 WORKDIR /app
 
-#instalo los requerimientos para python
-COPY requirements.txt requirements.txt
+#Instalo los requerimientos para python
+COPY requirements.txt ./
+
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 COPY . .
 
-#CMD [ "python", "-m", "flask", "run", "--host=0.0.0.0" ]
+RUN npm install 
+
+CMD [ "npm", "start"]
+
+EXPOSE 3000
+

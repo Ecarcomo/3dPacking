@@ -22,7 +22,8 @@ const validate = (method) => {
       body('items.*.width','error de dato - items.width').exists().notEmpty().isFloat(),
       body('items.*.height','error de dato - items.height').exists().notEmpty().isFloat(),
       body('items.*.depth','error de dato - items.depth').exists().notEmpty().isFloat(),
-      body('items.*.weight','error de dato - items.weight').exists().notEmpty().isFloat()
+      body('items.*.weight','error de dato - items.weight').exists().notEmpty().isFloat(),
+      body('items.*.quantity','error de dato - items.quantity').exists().notEmpty().isFloat()
     ]   
     }
   }
