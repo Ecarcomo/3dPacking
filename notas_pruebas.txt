@@ -31,16 +31,19 @@ packer.add_item(Item('mesa de luz', 0.4, 0.5, 0.4, 5))
 
 py .\ejecutable.py '{ "baulera": { "name":"baulera simple 3x3x3","width": 3.0, "height": 3.0, "depth": 3.0, "weightLimit": 10000},"items": [{"name": "sillon 2 cuerpos", "width": 3.0,"height": 0.8,"depth": 0.8,"weight": 40},{"name": "mesa de luz","width": 0.4,"height": 0.5,"depth": 0.4,"weight": 5}]}'
 
-curl -X POST -H "Content-Type: application/json" -d "{ \"baulera\": { \"name\": \"baulera Simple 3x3x3\",\"width\": 3.0, \"height\": 3.0, \"depth\": 3.0, \"weightLimit\": 10000},\"items\": [{\"name\": \"sillon 2 cuerpos\", \"width\": 3.0,\"height\": 0.8,\"depth\": 0.8,\"weight\": 40},{\"name\": \"mesa de luz\",\"width\": 0.4,\"height\": 0.5,\"depth\": 0.4,\"weight\": 5}]}" http://localhost:3000/api/pack
+curl -X POST -H "Content-Type: application/json" -d "{ \"baulera\": { \"name\": \"baulera Simple 3x3x3\",\"width\": 3.0, \"height\": 3.0, \"depth\": 3.0, \"weightLimit\": 10000},\"items\": [{\"name\": \"sillon 2 cuerpos\", \"width\": 3.0,\"height\": 0.8,\"depth\": 0.8,\"weight\": 40,\"quantity\": 3},{\"name\": \"mesa de luz\",\"width\": 0.4,\"height\": 0.5,\"depth\": 0.4,\"weight\": 5,\"quantity\": 3}]}" http://localhost:5500/api/pack
 
 
 
 
 como el Python va a recibir los parametros-
 py ./src/backend/ejecutable.py "baulera::baulera simple|3|3|3|10000" "item::sillon 2 cuerpos|3|0.8|0.8|40" "item::mesa de luz|0.4|0.5|0.4|5"
+py ./src/backend/ejecutable.py "baulera::baulera simple|3|3|3|10000" "item::sillon 2 cuerpos|3|0.8|0.8|40|2" "item::mesa de luz|0.4|0.5|0.4|5|4"
 
 jsdoc src/ -c conf.json -R README.md
 
  docker build -t ecarcomo/api3dpacking .
  docker run -d -p 3000:3000 --name container_3d_packing_api <id_image>
  docker stop <id_container>
+
+ https://github.com/jerry800416/3D-bin-packing/blob/master/example2.py
