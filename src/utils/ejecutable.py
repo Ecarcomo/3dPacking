@@ -55,7 +55,7 @@ def parse_and_pack_json(json_data_string):
     packer.add_item(Item(item_name, item_data["width"], item_data["height"], item_data["depth"], item_data["weight"]))
 
   # Pack and print results
-  packer.pack(True,True,2)
+  packer.pack(True,False,2)
 
   output = {
   "baulera": {

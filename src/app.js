@@ -9,7 +9,7 @@ const apiRouter = require('./routes/router');
  */
 const app = express();
 app.use(cors({
-  origin: 'http://127.0.0.1:4174', // Your frontend's origin
+  origin: 'http://127.0.0.1:4173', // Your frontend's origin
 }));
 const port = process.env.PORT || 5501;
 app.use(express.json());      // Parse JSON body content
